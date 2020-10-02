@@ -12,15 +12,22 @@
 // and append it to the DOM inside the div.header-container
 
 //Select the header container
-const containers = document.querySelector('header-container')
+const containers = document.querySelector('.header-container')
 
+// console.log(containers)
+
+let myFunction = headerFunction() 
+console.log(myFunction)
+
+containers.appendChild(myFunction)
 //Make function
-function Header() {
+function headerFunction() {
     //Make DIV
-    
     const headerDiv = document.createElement('div')
     //Add DIV class
     headerDiv.classList.add('header')
+    //append
+    containers.appendChild(headerDiv)
 
     //Make Span
     const dateSpan = document.createElement('span')
@@ -29,13 +36,14 @@ function Header() {
     //Add text
     dateSpan.textContent = 'MARCH 28, 2020'
     //append to the new headerDiv
-    dateSpan.appendChild(headerDiv)
+    headerDiv.appendChild(dateSpan)
+    console.log(dateSpan)
     //Make h1
     const lambdaH1 = document.createElement('h1')
     //h1 text
     dateSpan.textContent = 'Lambda Times'
      //append to the new headerDiv
-    lambdaH1.appendChild(headerDiv)
+    headerDiv.appendChild(lambdaH1)
 
     //Create Temp SPan
     const tempSpan = document.createElement('span')
@@ -44,10 +52,10 @@ function Header() {
     //Add class
     tempSpan.classList.add('temp')
      //append to the new headerDiv
-    tempSpan.appendChild(headerDiv)
-
+   headerDiv.appendChild(tempSpan)
+    console.log(headerDiv)
     return headerDiv
+    
 }
-const headings = Header()
 
-headings.append(containers)
+
