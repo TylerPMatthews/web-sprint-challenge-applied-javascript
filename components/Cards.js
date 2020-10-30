@@ -62,12 +62,13 @@ function createCard(object){
 axios
 .get('https://lambda-times-api.herokuapp.com/articles')
 .then((res)=>{
-    const resData = res.data.articles.javascript
-    resData.forEach((item)=>{
+    const resData = res.data.articles
+    for(let value in resData){
+    resData[value].forEach((item)=>{
         let mainData = createCard(item)
         appendHere.appendChild(mainData)
     })
-})
+}})
 .catch((err)=>{
     console.log('error')
 })
